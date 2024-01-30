@@ -10,14 +10,23 @@ export default function App() {
     setmodalIsVisible(true);
   };
 
+  const endModal = () => {
+    setmodalIsVisible(false);
+  };
+
+  const addCourse = (courseTitle) => {
+    console.log(courseTitle);
+    endModal();
+  };
+
   return (
 
     <>
       <StatusBar style="light" />
       <View style={styles.container}>
-        <Button title = 'Kurs Ekle' color = {'red'} onPress={startModal}/>
+        <Button title = 'Kurs Ekle' color = {'slateblue'} onPress={startModal}/>
         <CourseInput 
-        visible = {modalIsVisible}
+        visible = {modalIsVisible} onAddCourse = {addCourse} onCancel={endModal}
         />
       </View>
     </>
